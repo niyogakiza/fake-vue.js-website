@@ -9,8 +9,19 @@
       placerat orci nulla pellentesque.
   #team.bg-lightgreen
     .content-width
-      el-col
-
+      el-col(:gutter="40").center
+        el-col(:md="8", :xm="12", :xs="24", v-for='member in members', :key="member.name")
+           img.img-circle(:src="member.img", :alt="member.name")
+            h4 {{ member.name}}
+            h5 {{member.role}}
+  #alumni.bg-lightgreen
+    h2 Alumni
+     .content-width
+       el-row(:gutter="40").center
+        el-col(:md="8", :xm="12", :xs="24", v-for="member in alumni", :key="member.name")
+          img.img-circle(:src="member.img", :alt="member.name")
+            h4 {{member.name}}
+            h5 {{member.role}}
 </template>
 
 <script>
@@ -62,6 +73,59 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  p.intro {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+  h5 {
+    text-align: center;
+    font-style: oblique;
+    font-weight: normal;
+    font-size: 15px;
+  }
+  #leaders {
+    margin-top: 60px;
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 320px;
+      max-width: 80px;
+      border: 10px solid #238c8b;
+    }
+    p {
+      text-align: justify;
+    }
+    font-family: Lato, sans-serif;
+  }
+  #team {
+    margin-top: 60px;
+  }
+  #alumni {
+    padding-bottom: 40px;
+  }
+  #team, #alumni {
+    .el-row {
+      width: 75%;
+      margin-left: 12.5% !important;
+    }
+    font-family: Lato, sans-serif;
+    color: #fff;
+    padding-top: 40px;
+    h4 {
+      margin-bottom: 5px;
+    }
+    h5 {
+      font-weight: 500;
+      margin-top: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    img {
+      width: auto;
+      margin-left: auto;
+      max-height: 12em;
+      border: 5px solid #fff;
+    }
+  }
 
 </style>
